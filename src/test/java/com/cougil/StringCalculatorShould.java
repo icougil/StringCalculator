@@ -3,6 +3,7 @@ package com.cougil;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StringCalculatorShould {
 
@@ -29,5 +30,12 @@ public class StringCalculatorShould {
     @Test
     void sum_using_another_delimiter_defined_in_the_first_line() {
         assertThat(StringCalculator.add("//;\n1;2")).isEqualTo(3);
+    }
+
+    @Test
+    void summing_negative_numbers_should_fail() {
+        assertThatThrownBy(()-> StringCalculator.add("-1,-2"))
+                .isExactlyInstanceOf(NumberFormatException.class)
+                .hasMessageContaining("Negatives are not allowed. Found: -1,-2");
     }
 }
