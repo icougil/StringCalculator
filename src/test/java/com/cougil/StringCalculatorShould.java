@@ -22,7 +22,12 @@ public class StringCalculatorShould {
     }
 
     @Test
-    void sum_an_unkown_amount_of_numbers_separated_by_commas() {
+    void sum_an_unknown_amount_of_numbers_separated_by_commas() {
         assertThat(StringCalculator.add("1\n2\n3,4")).isEqualTo(10);
+    }
+
+    @Test
+    void sum_using_another_delimiter_defined_in_the_first_line() {
+        assertThat(StringCalculator.add("//;\n1;2")).isEqualTo(3);
     }
 }
