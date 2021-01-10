@@ -17,12 +17,12 @@ public class StringCalculatorShould {
     }
 
     @Test
-    void sum_two_numbers_separated_by_commas() {
-        assertThat(StringCalculator.add("1,2")).isEqualTo(3);
+    void sum_two_numbers_separated_by_new_lines_or_commas() {
+        assertThat(StringCalculator.add("1\n2,3")).isEqualTo(6);
     }
 
     @Test
     void sum_an_unkown_amount_of_numbers_separated_by_commas() {
-        assertThat(StringCalculator.add("1,2,3,4")).isEqualTo(10);
+        assertThat(StringCalculator.add("1\n2\n3,4")).isEqualTo(10);
     }
 }
