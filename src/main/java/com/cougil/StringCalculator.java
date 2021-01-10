@@ -25,8 +25,11 @@ public class StringCalculator {
                 .peek(number -> {
                     if (number < 0) negatives.add(number);
                 })
+                .filter( number -> number <= 1000 )
                 .sum();
-        final String invalidNumbers = negatives.stream().map(Object::toString).collect(Collectors.joining(","));
+        final String invalidNumbers = negatives.stream()
+                .map(Object::toString)
+                .collect(Collectors.joining(","));
         if (invalidNumbers.length() > 0) throw new NumberFormatException("Negatives are not allowed. Found: "+invalidNumbers);
         return result;
     }

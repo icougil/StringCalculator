@@ -38,4 +38,9 @@ public class StringCalculatorShould {
                 .isExactlyInstanceOf(NumberFormatException.class)
                 .hasMessageContaining("Negatives are not allowed. Found: -1,-2");
     }
+
+    @Test
+    void summing_ignoring_numbers_bigger_than_1000() {
+        assertThat(StringCalculator.add("1\n2000,3")).isEqualTo(4);
+    }
 }
