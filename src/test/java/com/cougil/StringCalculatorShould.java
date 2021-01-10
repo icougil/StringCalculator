@@ -20,4 +20,9 @@ public class StringCalculatorShould {
     void sum_two_numbers_separated_by_commas() {
         assertThat(StringCalculator.add("1,2")).isEqualTo(3);
     }
+
+    @Test
+    void sum_an_unkown_amount_of_numbers_separated_by_commas() {
+        assertThat(StringCalculator.add("1,2,3,4")).isEqualTo(10);
+    }
 }
