@@ -43,4 +43,9 @@ public class StringCalculatorShould {
     void summing_ignoring_numbers_bigger_than_1000() {
         assertThat(StringCalculator.add("1\n2000,3")).isEqualTo(4);
     }
+
+    @Test
+    void sum_using_delimiters_of_any_length_defined_in_the_first_line() {
+        assertThat(StringCalculator.add("//[***]\n1***2***3")).isEqualTo(6);
+    }
 }

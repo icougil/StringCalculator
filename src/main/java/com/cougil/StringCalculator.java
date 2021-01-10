@@ -8,14 +8,18 @@ import java.util.stream.Collectors;
 public class StringCalculator {
 
     private static final String PREFIX = "//";
+    private static final String DEFAULT_DELIMITER = ",";
 
     public static int add(String text) {
         List<Integer> negatives = new ArrayList<>();
 
-        String delimiter = ",";
+        String delimiter = DEFAULT_DELIMITER;
         int pos = text.indexOf("\n");
         if (pos > -1 && text.startsWith(PREFIX)) {
             delimiter = text.substring(PREFIX.length(), pos);
+            if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
+                delimiter = delimiter.substring(1,delimiter.length()-1);
+            }
             text = text.substring(pos+1);
         }
         final String[] numbers = text.split("[\\s"+delimiter+"]+");
