@@ -48,4 +48,9 @@ public class StringCalculatorShould {
     void sum_using_delimiters_of_any_length_defined_in_the_first_line() {
         assertThat(StringCalculator.add("//[***]\n1***2***3")).isEqualTo(6);
     }
+
+    @Test
+    void sum_allowing_multiple_delimiters_defined_in_the_first_line() {
+        assertThat(StringCalculator.add("//[*][%]\n1*2%3")).isEqualTo(6);
+    }
 }

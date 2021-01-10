@@ -18,7 +18,8 @@ public class StringCalculator {
         if (pos > -1 && text.startsWith(PREFIX)) {
             delimiter = text.substring(PREFIX.length(), pos);
             if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
-                delimiter = delimiter.substring(1,delimiter.length()-1);
+                delimiter = delimiter.replaceAll("\\[", "");
+                delimiter = delimiter.replaceAll("]","");
             }
             text = text.substring(pos+1);
         }
